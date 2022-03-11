@@ -1,0 +1,86 @@
+.main-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+}
+
+.main-page .search-box {
+    display: flex;
+    gap: 5px;
+}
+
+.main-page .search-box input {
+    padding: 0;
+    background: #444;
+    color: white;
+    outline: none;
+    border-radius: 20px;
+    border: none;
+    transition: .2s;
+    text-align: center;
+}
+
+.main-page .search-box input:focus {
+    padding: 0 10px;
+}
+
+.main-page .search-box button {
+    padding: 10px;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.main-page .search-box button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.main-page .search-box button img {
+    width: 100%;
+    height: 100%;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+.functionalities-main-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.functionalities-main-page .add-image-functionality {
+    padding: 10px;
+    background: transparent;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.functionalities-main-page .add-image-functionality:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.functionalities-main-page .add-image-functionality img {
+    width: 100%;
+    height: 100%;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+.main-page .container-image-card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}

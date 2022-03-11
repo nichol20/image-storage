@@ -1,0 +1,119 @@
+.add-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.add-image .form-add-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(83, 83, 83);
+  width: 400px;
+  padding: 20px;
+  gap: 15px;
+  border-radius: 8px;
+}
+
+.add-image .form-add-image .image-box-add-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  max-height: 300px;
+  overflow: hidden;
+  box-shadow: 4px 4px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.add-image .form-add-image .image-box-add-image img {
+  width: 100%;  
+  object-fit: cover;
+}
+
+.add-image .form-add-image .input-image-name {
+  padding: 10px;
+  background: #444;
+  color: white;
+  outline: none;
+  border-radius: 20px;
+  border: none;
+  transition: .2s;
+  text-align: center;
+  width: 350px;
+}
+
+.add-image .form-add-image .tags-wrapper {
+  padding: 20px;
+  background: #444;
+  color: white;
+  border-radius: 20px;
+  transition: .2s;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  overflow: hidden;
+}
+
+.add-image .form-add-image .tags-wrapper span {
+  position: relative;
+  padding: 5px 20px;
+  border-radius: 20px;
+  background: rgb(90, 90, 90);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 1em;
+}
+
+.add-image .form-add-image .tags-wrapper span button {
+  width: 10px;
+  height: 10px;
+  margin-top: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.add-image .form-add-image .tags-wrapper span button img{
+  width: 100%;
+  height: 100%;
+}
+
+.add-image .form-add-image .tags-wrapper input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  padding: 0;
+  width: 120px;
+}
+
+.add-image .form-add-image button[type="submit"] {
+  background: #444;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.add-image .form-add-image button[type="submit"]:hover {
+  background: rgb(109, 109, 109);
+}

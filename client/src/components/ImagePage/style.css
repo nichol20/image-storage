@@ -1,0 +1,36 @@
+.image-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.functionalities-image-page {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  list-style: none;
+}
+
+.functionalities-image-page .fav-functionality {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.functionalities-image-page .fav-functionality input {
+  position: absolute;
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.functionalities-image-page li img {
+  width: 30px;
+  height: 30px;
+}
