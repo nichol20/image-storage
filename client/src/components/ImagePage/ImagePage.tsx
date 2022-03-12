@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { getUniquePost } from '../../redux/actions/posts'
+import { getUniquePost, toggleFavoritePostFromImagePage } from '../../redux/actions/posts'
 import { IPostDataFromServer } from '../MainPage/MainPage'
 import * as img from '../../images'
 
@@ -16,23 +16,29 @@ export const ImagePage = () => {
   const { postId } = useParams()
   const dispatch = useDispatch()
   const post = useSelector((state: IState) => state.posts)
+  const [ showFullImage, setShowFullImage ] = useState(false)
 
   useEffect(() => {
     dispatch(getUniquePost(postId!))
   }, [dispatch, postId])
 
+
+
   return (
     <div className="image-page">
       <div className="container-image-page">
-        <div className="image-box-image-page">
+        <div className={`image-box-image-page ${ showFullImage ? '' : 'normal'}`}>
           <img src={post.imageFile} alt={post.title}/>
         </div>
 
         <ul className="functionalities-image-page">
             <li>
               <div className="fav-functionality">  
-                <input type='checkbox' />
-                <img src={img.heartIcon} alt="heart icon" />
+                <input
+                 type='checkbox'
+                 onChange={() => dispatch(toggleFavoritePostFromImagePage(post._id, !post.favorite))}
+                />
+                <img src={img.heartIcon} alt="heart icon" className={ post.favorite ? 'favorited' : ''} />
               </div>
             </li>
             <li>
@@ -41,8 +47,11 @@ export const ImagePage = () => {
               </a>
             </li>
             <li>
-              <button className='full-image-toggle'>
-
+              <button className='full-image-toggle' onClick={() => setShowFullImage(!showFullImage)} >
+                <img
+                 src={ showFullImage ? img.contractIcon : img.expandIcon }
+                 alt={ showFullImage ? 'contract' : 'expand' } 
+                />
               </button>
             </li>
           </ul>

@@ -6,11 +6,15 @@ import { IPostDataFromServer } from '../MainPage/MainPage'
 import * as img from '../../images'
 
 import './style.css'
+import { useDispatch } from 'react-redux'
+import { toggleFavoritePostFromImageCard } from '../../redux/actions/posts'
 interface IImageCardProps {
   data: IPostDataFromServer
 }
 
 export const ImageCard = ({ data }: IImageCardProps) => {
+  const dispatch = useDispatch()
+  
   return (
     <div className="image-card">
       <div className="image-box-image-card">
@@ -27,8 +31,11 @@ export const ImageCard = ({ data }: IImageCardProps) => {
           <ul className="functionalities-image-card">
             <li>
                 <div className="fav-functionality">  
-                  <input type='checkbox' />
-                  <img src={img.heartIcon} alt="heart icon" />
+                  <input
+                   type='checkbox' 
+                   onChange={() => dispatch(toggleFavoritePostFromImageCard(data._id, !data.favorite))}
+                  />
+                  <img src={img.heartIcon} alt="heart icon" className={ data.favorite ? 'favorited' : ''} />
                 </div>
             </li>
             <li>

@@ -99,9 +99,14 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
+  z-index: 1;
 }
 
 .image-card .image-details-image-card .functionalities-container-image-card .functionalities-image-card li img {
   width: 30px;
   height: 30px;
+}
+
+.image-card .image-details-image-card .functionalities-container-image-card .functionalities-image-card li img.favorited {
+  filter: invert(12%) sepia(89%) saturate(7124%) hue-rotate(358deg) brightness(93%) contrast(115%);
 }

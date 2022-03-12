@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 
 import { api } from "../../api";
-import { CREATE, FETCHPOST, FETCH_ALL } from "../constants";
+import { CREATE, FETCHPOST, FETCH_ALL, TOGGLEFAVORITEFROMIMAGECARD, TOGGLEFAVORITEFROMIMAGEPAGE } from "../constants";
 
 interface IPostData {
   title: string
@@ -33,6 +33,26 @@ export const getUniquePost = (id: string) => async (dispatch: Dispatch) => {
     const { data } = await api.get(`/posts/${id}`)
 
     dispatch({ type: FETCHPOST, payload: data})
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const toggleFavoritePostFromImageCard = (id: string, isFavorite: Boolean) => async (dispatch: Dispatch) => {
+  try {
+    const { data } = await api.put(`/posts/${id}`, { isFavorite })
+
+    dispatch({ type: TOGGLEFAVORITEFROMIMAGECARD, payload: data })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const toggleFavoritePostFromImagePage = (id: string, isFavorite: Boolean) => async (dispatch: Dispatch) => {
+  try {
+    const { data } = await api.put(`/posts/${id}`, { isFavorite })
+
+    dispatch({ type: TOGGLEFAVORITEFROMIMAGEPAGE, payload: data })
   } catch (error) {
     console.log(error)
   }
