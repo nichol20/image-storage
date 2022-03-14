@@ -1,9 +1,9 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react'
+import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react'
 import FileBase from 'react-file-base64'
 import { useDispatch } from 'react-redux'
 
 import { removeIcon } from '../../images'
-import { createPost } from '../../redux/actions/posts'
+import { createPost, updatePost } from '../../redux/actions/posts'
 
 import './style.css'
 
@@ -13,13 +13,27 @@ interface IBase64 {
 
 interface IAddImage {
   setAddImageWindow: Function
+  currentId?: string
+  props?: {
+    imageFile: string
+    tags: string[]
+    title: string
+  }
 }
 
-export const AddImage = ({ setAddImageWindow }: IAddImage) => {
+export const AddImage = ({ setAddImageWindow, currentId, props }: IAddImage) => {
   const [ imageFile, setImageFile ] = useState('')
   const [ tags, setTags ] = useState(Array)
   const [ title, setTitle ] = useState('')
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    if(currentId) {
+      setImageFile(props!.imageFile)
+      setTags(props!.tags)
+      setTitle(props!.title)
+    }
+  }, [currentId, props])
 
   const handleOnChangeTagsInput = (e: ChangeEvent) => {
     const tag = (e.target as HTMLInputElement).value;
@@ -39,13 +53,14 @@ export const AddImage = ({ setAddImageWindow }: IAddImage) => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-
-    dispatch(createPost({ title, imageFile, tags }))
+    if(currentId) dispatch(updatePost(currentId, { title, imageFile, tags }))
+    else dispatch(createPost({ title, imageFile, tags }))
     setAddImageWindow(false)
   }
 
   return (
-    <div className="add-image" onClick={() => setAddImageWindow(false)}>
+    <div className="add-image">
+      <div className="close-add-image-window" onClick={() => setAddImageWindow(false)} />
       <form className="form-add-image" onSubmit={handleSubmit}>
         <div className="image-box-add-image">
           <img src={imageFile} alt="" />  
@@ -54,11 +69,14 @@ export const AddImage = ({ setAddImageWindow }: IAddImage) => {
          type="file"
          multiple={false}
          onDone={({ base64 }: IBase64) => setImageFile(base64)}
+         defaultValue={imageFile}
         />
         <input
          className="input-image-name" 
-         type="text" placeholder='Name' 
+         type="text" 
+         placeholder='Name' 
          onChange={e => setTitle(e.target.value)}
+         defaultValue={title}
         />
         <div className="tags-wrapper">
           {

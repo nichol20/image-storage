@@ -11,6 +11,8 @@
   align-items: center;
   width: 400px;
   height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .image-box-image-page.normal img {
@@ -48,6 +50,18 @@
 .functionalities-image-page li img {
   width: 30px;
   height: 30px;
+}
+
+.functionalities-image-page button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: .2s;
+  border-radius: 50%;
+}
+
+.functionalities-image-page button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .functionalities-image-page li img.favorited {

@@ -1,0 +1,132 @@
+.image-card.list {
+  position: relative;
+  width: 800px;
+  height: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255,255,255,0.5);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+}
+
+.image-card.list .image-box-image-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: .5s;
+  z-index: 10;
+}
+
+.image-card.list:hover .image-box-image-card {
+  transform: translateX(30px) scale(0.7);
+  transform-origin: left;
+  width: 100px;
+  border: 2px solid rgb(29, 29, 29);
+}
+
+.image-card.list.active .image-box-image-card {
+  transform: translateX(30px) scale(0.7);
+  transform-origin: left;
+  width: 100px;
+  border: 2px solid rgb(29, 29, 29);
+}
+
+.image-card.list .image-box-image-card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-card.list .image-details-image-card h2 {
+  text-align: start;
+  margin-top: 8px;
+  font-size: 1.4em;
+}
+
+.image-card.list .image-details-image-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;;
+  padding-left: 140px;
+}
+
+.image-card.list .image-details-image-card .functionalities-container-image-card {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.image-card.list .image-details-image-card .functionalities-container-image-card .tags-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 142px;
+}
+
+.image-card.list .image-details-image-card .functionalities-container-image-card .tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  list-style: none;
+}
+
+.image-card.list .image-details-image-card .functionalities-container-image-card .tags li {
+  position: relative;
+  font-size: 1em;
+  border-radius: 20px;
+  background: rgb(23 18 18);
+  padding: 4px 8px;
+  display: flex;
+}
+
+.image-card.list .image-details-image-card .functionalities-container-image-card .functionalities-image-card {
+  display: flex;
+  justify-content: space-between;
+  width: 122px;
+  list-style: none;
+}
+
+.image-card.list .image-details-image-card .functionalities-container-image-card .functionalities-image-card .fav-functionality {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+
+.image-card.list .image-details-image-card .functionalities-container-image-card .functionalities-image-card .fav-functionality input {
+  position: absolute;
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.image-card.list .image-details-image-card .functionalities-container-image-card .functionalities-image-card li img {
+  width: 30px;
+  height: 30px;
+}
+
+.image-card.list .image-details-image-card .functionalities-container-image-card .functionalities-image-card li img.favorited {
+  filter: invert(12%) sepia(89%) saturate(7124%) hue-rotate(358deg) brightness(93%) contrast(115%);
+}

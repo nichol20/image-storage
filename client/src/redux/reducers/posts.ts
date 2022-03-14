@@ -1,5 +1,5 @@
 import { IPostDataFromServer } from '../../components/MainPage/MainPage'
-import { FETCH_ALL, CREATE, FETCHPOST, TOGGLEFAVORITEFROMIMAGECARD, TOGGLEFAVORITEFROMIMAGEPAGE } from '../constants'
+import { FETCH_ALL, CREATE, FETCHPOST, TOGGLEFAVORITEFROMIMAGECARD, TOGGLEFAVORITEFROMIMAGEPAGE, UPDATE, DELETE } from '../constants'
 
 interface IAction {
     type: String
@@ -16,8 +16,10 @@ export const posts = (posts = [], action: IAction ) => {
         case TOGGLEFAVORITEFROMIMAGECARD:
             return posts.map((post: IPostDataFromServer) => 
             post._id === action.payload._id ? action.payload : post )
+        case UPDATE:
         case TOGGLEFAVORITEFROMIMAGEPAGE:
             return action.payload
+        case DELETE:
         default:
             return posts
     }

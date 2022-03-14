@@ -5,18 +5,21 @@ import { IPostDataFromServer } from '../MainPage/MainPage'
 
 import * as img from '../../images'
 
-import './style.css'
+import './gridStyle.css'
+import './listStyle.css'
 import { useDispatch } from 'react-redux'
 import { toggleFavoritePostFromImageCard } from '../../redux/actions/posts'
 interface IImageCardProps {
   data: IPostDataFromServer
+  organization: string
+  isActive: Boolean
 }
 
-export const ImageCard = ({ data }: IImageCardProps) => {
+export const ImageCard = ({ data, organization, isActive }: IImageCardProps) => {
   const dispatch = useDispatch()
   
   return (
-    <div className="image-card">
+    <div className={`image-card ${organization} ${isActive ? 'active' : ''}`}>
       <div className="image-box-image-card">
         <img src={data.imageFile} alt={data.title} />
       </div>
