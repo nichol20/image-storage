@@ -13,3 +13,4 @@ This project was developed with the following technologies:
 - MongoDB Cloud
 - Mongoose
 - Redux
+- React File Base64
