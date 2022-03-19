@@ -103,7 +103,7 @@ export const MainPage = () => {
 
         <div className="active-images-box">
           <input type="checkbox" onChange={() => setIsCardsActive(!isCardsActive)} />
-          <span>Cards active</span>
+          <span>Active cards</span>
         </div>
       </div>
 
